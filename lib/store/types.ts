@@ -13,13 +13,13 @@ export interface ReducerState<T> {
   error: Error | null;
 }
 
-export type ActionIdle = { type: typeof Status.IDLE }
-export type ActionLoading = { type: typeof Status.LOADING }
-export type ActionError = { type: typeof Status.ERROR; payload: Error }
-export type ActionSuccess<T> = { type: typeof Status.SUCCESS; payload: T }
+export type ActionIdle = { type: typeof Status.IDLE };
+export type ActionLoading = { type: typeof Status.LOADING };
+export type ActionError = { type: typeof Status.ERROR; payload: Error };
+export type ActionSuccess<T> = { type: typeof Status.SUCCESS; payload: T };
 
 export type Action<T> =
   | ActionIdle
   | ActionLoading
   | ActionError
-  | ActionSuccess<T>
+  | ActionSuccess<T>;
