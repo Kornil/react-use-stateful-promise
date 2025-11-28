@@ -1,22 +1,24 @@
-import { Status, type Action, type ReducerState } from "./types";
+import { Status, ActionTypes, type Action, type ReducerState } from "./types";
 
 export function reducer<T>(
   state: ReducerState<T>,
   action: Action<T>
 ): ReducerState<T> {
   switch (action.type) {
-    case Status.IDLE:
+    case ActionTypes.IDLE:
+      return { ...state, status: Status.IDLE, error: null };
+    case ActionTypes.RESET:
       return { ...state, status: Status.IDLE, error: null, data: null };
-    case Status.LOADING:
+    case ActionTypes.LOADING:
       return { ...state, status: Status.LOADING, error: null };
-    case Status.ERROR:
+    case ActionTypes.ERROR:
       return {
         ...state,
         status: Status.ERROR,
         error: action.payload,
         data: null,
       };
-    case Status.SUCCESS:
+    case ActionTypes.SUCCESS:
       return {
         ...state,
         status: Status.SUCCESS,
