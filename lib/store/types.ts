@@ -19,19 +19,19 @@ export type ActionTypes = (typeof ActionTypes)[keyof typeof ActionTypes];
 
 export interface ReducerState<T> {
   status: Status;
-  data: T | null;
+  data: T;
   error: Error | null;
 }
 
 export type ActionIdle = { type: typeof ActionTypes.IDLE };
-export type ActionReset = { type: typeof ActionTypes.RESET };
+export type ActionReset<T> = { type: typeof ActionTypes.RESET , payload: T };
 export type ActionLoading = { type: typeof ActionTypes.LOADING };
 export type ActionError = { type: typeof ActionTypes.ERROR; payload: Error };
 export type ActionSuccess<T> = { type: typeof ActionTypes.SUCCESS; payload: T };
 
 export type Action<T> =
   | ActionIdle
-  | ActionReset
+  | ActionReset<T>
   | ActionLoading
   | ActionError
   | ActionSuccess<T>;

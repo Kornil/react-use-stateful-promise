@@ -9,7 +9,7 @@ import {
 
 export const actions = {
   idle: (): ActionIdle => ({ type: ActionTypes.IDLE }),
-  reset: (): ActionReset => ({ type: ActionTypes.RESET }),
+  reset: <T>(payload: T): ActionReset<T> => ({ type: ActionTypes.RESET, payload }),
   loading: (): ActionLoading => ({ type: ActionTypes.LOADING }),
   error: (payload: Error): ActionError => ({ type: ActionTypes.ERROR, payload }),
   success: <T>(payload: T): ActionSuccess<T> => ({
