@@ -23,5 +23,7 @@ export function reducer<T>(
         error: null,
         data: action.payload,
       };
+    default:
+      throw new Error(`Unknown action ${JSON.stringify(action)}`);
   }
 }
