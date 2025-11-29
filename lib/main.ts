@@ -44,14 +44,18 @@ export function useStatefulPromise<S, Args extends unknown[]>(
         }
 
         dispatch(actions.success(data));
-
         onSuccess?.(data);
+
         return data;
       })
       .catch((error: Error) => {
-        dispatch(actions.error(error));
+        if (canceled.current || currentPromise.current !== promise) {
+          return null;
+        }
 
+        dispatch(actions.error(error));
         onError?.(error);
+
         return null;
       });
   };
@@ -59,16 +63,16 @@ export function useStatefulPromise<S, Args extends unknown[]>(
   const cancel = () => {
     canceled.current = true;
     currentPromise.current = null;
-    dispatch(actions.idle());
 
+    dispatch(actions.idle());
     onCancel?.();
   };
 
   const reset = () => {
     canceled.current = false;
     currentPromise.current = null;
-    dispatch(actions.reset(initialData));
 
+    dispatch(actions.reset(initialData));
     onReset?.();
   };
 

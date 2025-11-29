@@ -113,6 +113,44 @@ describe("useStatefulPromise", () => {
     vi.useRealTimers();
   });
 
+  test("cancels a running erroring promise", async () => {
+    vi.useFakeTimers();
+    let promise: Promise<number | null>;
+    const initialData = 0;
+
+    const asyncFn = vi.fn(
+      (ms: number) =>
+        new Promise<number>((_resolve, reject) => {
+          setTimeout(() => reject(new Error("Fail!")), ms);
+        })
+    );
+
+    const { result } = renderHook(() =>
+      useStatefulPromise(asyncFn, initialData)
+    );
+
+    act(() => {
+      promise = result.current.run(1000);
+    });
+
+    act(() => {
+      result.current.cancel();
+    });
+
+    expect(result.current.status).toBe(Status.IDLE);
+    expect(result.current.data).toBe(initialData);
+
+    await act(async () => {
+      vi.runAllTimers();
+      await promise;
+    });
+
+    expect(result.current.data).toBe(initialData);
+    expect(result.current.status).toBe(Status.IDLE);
+
+    vi.useRealTimers();
+  });
+
   test("resets back to initialData", () => {
     const initialData = 0;
     const newData = 42;
