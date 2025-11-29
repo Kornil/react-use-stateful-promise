@@ -12,5 +12,6 @@ export default defineConfig({
   base: "/react-use-stateful-promise/",
   build: {
     outDir: "../dist-demo",
+    emptyOutDir: true,
   },
 });

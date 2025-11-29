@@ -23,6 +23,7 @@ export default defineConfig({
     copyPublicDir: false,
     rollupOptions: {
       external: ['react'],
-    }
+    },
+    emptyOutDir: true,
   }
 })
