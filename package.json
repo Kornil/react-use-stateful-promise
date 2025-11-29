@@ -43,6 +43,7 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "build": "tsc -b ./tsconfig.lib.json && vite build",
+    "build:demo": "tsc -b ./tsconfig.app.json && vite build --config ./demo/vite.config.ts",
     "lint": "eslint .",
     "prepublishOnly": "npm run build"
   },
