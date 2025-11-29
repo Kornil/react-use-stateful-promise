@@ -7,7 +7,18 @@ import { actions } from "./store/actions";
 
 export function useStatefulPromise<S, Args extends unknown[]>(
   asyncFunc: Run<S, Args>,
-  initialData: S
+  initialData: S,
+  {
+    onSuccess,
+    onError,
+    onCancel,
+    onReset,
+  }: {
+    onSuccess?: (data: S) => void;
+    onError?: (error: Error) => void;
+    onCancel?: () => void;
+    onReset?: () => void;
+  } = {}
 ) {
   const [state, dispatch] = useReducer<ReducerState<S>, [Action<S>]>(reducer, {
     status: Status.IDLE,
@@ -33,10 +44,14 @@ export function useStatefulPromise<S, Args extends unknown[]>(
         }
 
         dispatch(actions.success(data));
+
+        onSuccess?.(data);
         return data;
       })
       .catch((error: Error) => {
         dispatch(actions.error(error));
+
+        onError?.(error);
         return null;
       });
   };
@@ -45,12 +60,16 @@ export function useStatefulPromise<S, Args extends unknown[]>(
     canceled.current = true;
     currentPromise.current = null;
     dispatch(actions.idle());
+
+    onCancel?.();
   };
 
   const reset = () => {
     canceled.current = false;
     currentPromise.current = null;
     dispatch(actions.reset(initialData));
+
+    onReset?.();
   };
 
   return {
