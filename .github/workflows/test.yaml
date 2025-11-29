@@ -2,7 +2,7 @@ name: Testing workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
 
 jobs:
@@ -14,8 +14,8 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install deps
         run: npm ci
@@ -28,7 +28,7 @@ jobs:
         with:
           name: coverage
           path: coverage
-          
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
