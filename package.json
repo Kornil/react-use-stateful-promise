@@ -1,7 +1,7 @@
 {
   "name": "react-use-stateful-promise",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -22,7 +22,14 @@
     "url": "https://github.com/Kornil/react-use-stateful-promise/issues"
   },
   "description": "A React hook for managing async operations with status, data and cancellation.",
-  "keywords": ["react", "hooks", "react-hooks", "async", "promise", "typescript"],
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "async",
+    "promise",
+    "typescript"
+  ],
   "license": "MIT",
   "sideEffects": false,
   "engines": {
