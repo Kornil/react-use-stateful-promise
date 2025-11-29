@@ -1,4 +1,6 @@
-# React + TypeScript + Vite
+# UseStatefulPromise react hook
+
+[![codecov](https://codecov.io/gh/Kornil/react-use-stateful-promise/graph/badge.svg?token=GLE1K3QYHG)](https://codecov.io/gh/Kornil/react-use-stateful-promise)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
