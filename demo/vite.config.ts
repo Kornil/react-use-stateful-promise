@@ -11,10 +11,6 @@ export default defineConfig({
   }),
   base: "/react-use-stateful-promise/",
   build: {
-    lib: {
-      entry: resolve(__dirname, 'main.tsx'),
-      formats: ['es']
-    },
     outDir: "../dist-demo",
   },
 });

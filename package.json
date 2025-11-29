@@ -39,7 +39,7 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --config ./demo/vite.config.ts",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "build": "tsc -b ./tsconfig.lib.json && vite build",
