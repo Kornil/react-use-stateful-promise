@@ -1,4 +1,4 @@
-import { Status, useStatefulPromise } from "../lib/main.ts";
+import { useStatefulPromise } from "../lib/main.ts";
 import { useCallback, useState } from "react";
 
 import "./App.css";
@@ -27,30 +27,17 @@ function App() {
   const { status, data, run, cancel, reset } = useStatefulPromise<
     number,
     [number, boolean]
-  >(waitPromise, 0);
+  >(waitPromise, 0, {
+    onSuccess: (newData) =>appendLog(`Run succeeded with data: ${newData}`),
+    onError: (error) => appendLog(`Run failed with error: ${error.message}.`),
+    onCancel: () => appendLog(`Cancel triggered by user.`),
+    onReset: () => appendLog(`Reset triggered by user.`),
+  });
 
-  const onRun = useCallback(() => {
+  const onRun = useCallback(async () => {
     appendLog(`Run started (delay=${delay}, error=${shouldError})`);
-    run(delay, shouldError).then((result) => {
-      if (status === Status.SUCCESS) {
-        appendLog(`Run succeeded with result: ${result}`);
-      } else if (status === Status.ERROR) {
-        appendLog(`Run failed with error.`);
-      } else if (status === Status.IDLE) {
-        appendLog(`Run was canceled.`);
-      }
-    });
-  }, [delay, run, shouldError, status]);
-
-  const onCancel = useCallback(() => {
-    appendLog("Run canceled by user.");
-    cancel();
-  }, [cancel]);
-
-  const onReset = useCallback(() => {
-    appendLog("Reset triggered by user.");
-    reset();
-  }, [reset]);
+    await run(delay, shouldError);
+  }, [delay, run, shouldError]);
 
   return (
     <div className="demo">
@@ -79,13 +66,13 @@ function App() {
 
       <div className="buttons">
         <button onClick={onRun}>Run</button>
-        <button onClick={onCancel}>Cancel</button>
-        <button onClick={onReset}>Reset</button>
+        <button onClick={cancel}>Cancel</button>
+        <button onClick={reset}>Reset</button>
       </div>
 
       <div className="log-wrapper">
         <pre className="log-box">
-        <h3 className="log-title">Logs</h3>
+          <h3 className="log-title">Logs</h3>
           {log.map((line, i) => (
             <div key={i}>{line}</div>
           ))}
