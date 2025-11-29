@@ -8,6 +8,29 @@
   "files": [
     "dist"
   ],
+  "author": {
+    "name": "Francesco Agnoletto",
+    "email": "11630180+Kornil@users.noreply.github.com",
+    "url": "https://github.com/Kornil"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kornil/react-use-stateful-promise"
+  },
+  "homepage": "https://github.com/Kornil/react-use-stateful-promise#readme",
+  "bugs": {
+    "url": "https://github.com/Kornil/react-use-stateful-promise/issues"
+  },
+  "description": "A React hook for managing async operations with status, data and cancellation.",
+  "keywords": ["react", "hooks", "react-hooks", "async", "promise", "typescript"],
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "test": "vitest",
