@@ -12,6 +12,7 @@ function App() {
   const appendLog = (msg: string) =>
     setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] ${msg}`]);
 
+  // example async function that resolves or rejects after a delay
   const waitPromise = (ms: number, shouldError: boolean): Promise<number> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -24,16 +25,22 @@ function App() {
     });
   };
 
+  // useStatefulPromise hook with all callbacks implemented
   const { status, data, run, cancel, reset } = useStatefulPromise<
+    // types for the async function
+    // S: data type returned by the promise
+    // Args: argument types for the async function, in this case waitPromise takes two arguments: number and boolean
     number,
     [number, boolean]
   >(waitPromise, 0, {
+    // optional callbacks for each action, can add custom behavior like logging or other side effects here
     onSuccess: (newData) =>appendLog(`Run succeeded with data: ${newData}`),
     onError: (error) => appendLog(`Run failed with error: ${error.message}.`),
     onCancel: () => appendLog(`Cancel triggered by user.`),
     onReset: () => appendLog(`Reset triggered by user.`),
   });
 
+  // handler for the "Run" button
   const onRun = useCallback(async () => {
     appendLog(`Run started (delay=${delay}, error=${shouldError})`);
     await run(delay, shouldError);
