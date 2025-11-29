@@ -5,7 +5,10 @@ import { Status, type Action, type ReducerState } from "./store/types";
 import type { Run } from "./types";
 import { actions } from "./store/actions";
 
-export function useStatefulPromise<S, Args extends unknown[]>(asyncFunc: Run<S, Args>, initialData: S) {
+export function useStatefulPromise<S, Args extends unknown[]>(
+  asyncFunc: Run<S, Args>,
+  initialData: S
+) {
   const [state, dispatch] = useReducer<ReducerState<S>, [Action<S>]>(reducer, {
     status: Status.IDLE,
     error: null,
@@ -18,7 +21,7 @@ export function useStatefulPromise<S, Args extends unknown[]>(asyncFunc: Run<S, 
 
   const run = (...args: Args): Promise<S | null> => {
     dispatch(actions.loading());
-    
+
     const promise = asyncFunc(...args);
     currentPromise.current = promise;
     canceled.current = false;
@@ -58,4 +61,3 @@ export function useStatefulPromise<S, Args extends unknown[]>(asyncFunc: Run<S, 
   };
 }
 export { Status };
-

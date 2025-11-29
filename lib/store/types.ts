@@ -24,7 +24,7 @@ export interface ReducerState<T> {
 }
 
 export type ActionIdle = { type: typeof ActionTypes.IDLE };
-export type ActionReset<T> = { type: typeof ActionTypes.RESET , payload: T };
+export type ActionReset<T> = { type: typeof ActionTypes.RESET; payload: T };
 export type ActionLoading = { type: typeof ActionTypes.LOADING };
 export type ActionError = { type: typeof ActionTypes.ERROR; payload: Error };
 export type ActionSuccess<T> = { type: typeof ActionTypes.SUCCESS; payload: T };

@@ -8,7 +8,12 @@ export function reducer<T>(
     case ActionTypes.IDLE:
       return { ...state, status: Status.IDLE, error: null };
     case ActionTypes.RESET:
-      return { ...state, status: Status.IDLE, error: null, data: action.payload };
+      return {
+        ...state,
+        status: Status.IDLE,
+        error: null,
+        data: action.payload,
+      };
     case ActionTypes.LOADING:
       return { ...state, status: Status.LOADING, error: null };
     case ActionTypes.ERROR:

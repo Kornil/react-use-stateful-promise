@@ -4,15 +4,15 @@ import { actions } from "../actions";
 import { ActionTypes } from "../types";
 
 describe("actions", () => {
-    test("creates idle action", () => {
+  test("creates idle action", () => {
     expect(actions.idle()).toEqual({ type: ActionTypes.IDLE });
   });
-  
+
   test("creates reset action with payload", () => {
     const result = actions.reset("data");
     expect(result).toEqual({ type: ActionTypes.RESET, payload: "data" });
   });
-  
+
   test("creates loading action", () => {
     expect(actions.loading()).toEqual({ type: ActionTypes.LOADING });
   });
