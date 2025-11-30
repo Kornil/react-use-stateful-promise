@@ -10,7 +10,8 @@ A tiny, no-dependencies, fully type-safe React hook for running async functions 
 
 ### ✨ Features
 
-- 🚀 Run any async function and track status `idle | loading | success | error`
+- 🚀 Run any async function (`fetch` or any other library or custom)
+- 👁‍🗨 track async operation status `idle | loading | success | error`
 - 🧠 Stores data & error inside hook state
 - ❌ Supports cancellation (prevents state updates after cancel)
 - 🔄 Supports reset (cancels and restores initial state)
@@ -18,6 +19,23 @@ A tiny, no-dependencies, fully type-safe React hook for running async functions 
 - 🪶 Lightweight (no dependencies)
 - 🔧 Fully typed with TypeScript generics
 - ⚛️ React Compiler compatible (no need for useCallback)
+
+### 🎮 Demo
+
+A live, interactive demo is available here:
+
+👉 [Live Demo on GitHub Pages](https://kornil.github.io/react-use-stateful-promise/)
+
+The demo showcases:
+
+- Running successful async operations
+- Error handling on rejected async operations
+- Canceling in-flight promises
+- Resetting state
+- Ensuring no race conditions (Only the latest invocation resolves — stale promises are ignored automatically.)
+- Visualizing status transitions (IDLE → LOADING → SUCCESS / ERROR)
+
+You can also explore the full demo source code inside the `/demo` folder of the repository.
 
 ## 📦 Install
 
@@ -32,6 +50,8 @@ yarn:
 ```bash
 yarn add react-use-stateful-promise
 ```
+
+
 
 ## 🧩 Usage
 
