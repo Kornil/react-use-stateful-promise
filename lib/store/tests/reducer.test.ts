@@ -50,8 +50,7 @@ describe("reducer", () => {
 
   test("throws on unknown action", () => {
     expect(() =>
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      reducer(initial, { type: "UNKNOWN_ACTION" } as any)
+      reducer(initial, { type: "UNKNOWN_ACTION" } as never)
     ).toThrowErrorMatchingInlineSnapshot(
       `[Error: Unknown action {"type":"UNKNOWN_ACTION"}]`
     );

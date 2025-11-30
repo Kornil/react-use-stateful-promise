@@ -72,7 +72,7 @@ function App() {
       </div>
 
       <div className="buttons">
-        <button onClick={onRun}>Run</button>
+        <button onClick={() => { void onRun() }}>Run</button>
         <button onClick={cancel}>Cancel</button>
         <button onClick={reset}>Reset</button>
       </div>
