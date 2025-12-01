@@ -10,21 +10,19 @@ A tiny, no-dependencies, fully type-safe React hook for running async functions 
 
 ### ✨ Features
 
-- 🚀 Run any async function (`fetch` or any other library or custom)
-- 👁‍🗨 track async operation status `idle | loading | success | error`
-- 🧠 Stores data & error inside hook state
-- ❌ Supports cancellation (prevents state updates after cancel)
-- 🔄 Supports reset (cancels and restores initial state)
-- 🔒 Race-condition safe (only the latest call can update state)
-- 🪶 Lightweight (no dependencies)
-- 🔧 Fully typed with TypeScript generics
-- ⚛️ React Compiler compatible (no need for useCallback)
+- Run any async function (`fetch` or any other library or custom)
+- Track async operation status `idle | loading | success | error`
+- Stores data & error inside hook state
+- Supports cancellation (prevents state updates after cancel)
+- Supports reset (cancels and restores initial state)
+- Race-condition safe (only the latest call can update state)
+- Lightweight (no dependencies)
+- Fully typed with TypeScript generics
+- React Compiler compatible (no need for useCallback)
 
-### 🎮 Demo
+## 🎮 Demo
 
-A live, interactive demo is available here:
-
-👉 [Live Demo on GitHub Pages](https://kornil.github.io/react-use-stateful-promise/)
+[Live Demo on GitHub Pages](https://kornil.github.io/react-use-stateful-promise/)
 
 The demo showcases:
 
