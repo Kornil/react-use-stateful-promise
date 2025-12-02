@@ -9,6 +9,7 @@ export default defineConfig([
   globalIgnores(['dist', 'dist-demo', 'coverage', 'node_modules']),
   {
     files: ['**/*.{ts,tsx}'],
+    ignores: ['vitest.config.ts'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommendedTypeChecked,
