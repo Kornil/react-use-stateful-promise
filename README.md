@@ -3,6 +3,7 @@
 ![npm version](https://img.shields.io/npm/v/react-use-stateful-promise)
 ![build](https://img.shields.io/github/actions/workflow/status/kornil/react-use-stateful-promise/publish.yaml)
 ![dependencies](https://img.shields.io/librariesio/release/npm/react-use-stateful-promise)
+![bundlephobia](https://img.shields.io/bundlephobia/min/react-use-stateful-promise)
 [![codecov](https://codecov.io/gh/Kornil/react-use-stateful-promise/graph/badge.svg?token=GLE1K3QYHG)](https://codecov.io/gh/Kornil/react-use-stateful-promise)
 ![license](https://img.shields.io/npm/l/react-use-stateful-promise)
 
