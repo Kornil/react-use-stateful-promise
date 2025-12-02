@@ -8,19 +8,19 @@
 
 A tiny, no-dependencies, fully type-safe React hook for running async functions with built-in status management, cancellation, reset, state synchronization and optional side effects.
 
-### ✨ Features
+### Features
 
-- Run any async function (`fetch` or any other library or custom)
-- Track async operation status `idle | loading | success | error`
-- Stores data & error inside hook state
-- Supports cancellation (prevents state updates after cancel)
-- Supports reset (cancels and restores initial state)
-- Race-condition safe (only the latest call can update state)
-- Lightweight (no dependencies)
-- Fully typed with TypeScript generics
-- React Compiler compatible (no need for useCallback)
+- 🚀 Run any async function (`fetch` or any other library or custom)
+- 👁️ Track async operation status `idle | loading | success | error`
+- 🧠 Stores data & error inside hook state
+- ❌ Supports cancellation (prevents state updates after cancel)
+- 🔄 Supports reset (cancels and restores initial state)
+- 🔒 Race-condition safe (only the latest call can update state)
+- 🪶 Lightweight (no dependencies)
+- 🔧 Fully typed with TypeScript generics
+- ⚛️ React Compiler compatible (no need for useCallback)
 
-## 🎮 Demo
+## Demo
 
 [Live Demo on GitHub Pages](https://kornil.github.io/react-use-stateful-promise/)
 
@@ -35,7 +35,7 @@ The demo showcases:
 
 You can also explore the full demo source code inside the `/demo` folder of the repository.
 
-## 📦 Install
+## Install
 
 npm:
 
@@ -51,7 +51,7 @@ yarn add react-use-stateful-promise
 
 
 
-## 🧩 Usage
+## Usage
 
 TypeScript (with types):
 
@@ -117,7 +117,7 @@ function Example() {
 }
 ```
 
-## 📘 API Reference
+## API Reference
 
 ```js
 const { status, data, run, cancel, reset } = useStatefulPromis(
@@ -156,7 +156,7 @@ const { status, data, run, cancel, reset } = useStatefulPromis(
 | **`options.onCancel`**  | `() => void`                  | ✖️ No    | Called when the async operation is cancelled.                     |
 | **`options.onReset`**   | `() => void`                  | ✖️ No    | Called when `reset()` is invoked.                                 |
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome and appreciated, be it opening issues, opening pull requests or just asking questions.
 
