@@ -121,7 +121,7 @@ function Example() {
 ## API Reference
 
 ```js
-const { status, data, run, cancel, reset } = useStatefulPromis(
+const { status, data, run, cancel, reset } = useStatefulPromise(
   asyncFunction,
   initialData,
   {
